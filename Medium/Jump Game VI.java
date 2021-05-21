@@ -1,7 +1,5 @@
 ### [1696\. Jump Game VI](https://leetcode.com/problems/jump-game-vi/)
 
-My sol solves 57/65 cases, reason for failure: time limit exceded
-
 Difficulty: **Medium**  
 
 Related Topics: [Dequeue](https://leetcode.com/tag/dequeue/)
@@ -49,29 +47,6 @@ Output: 0
 Language: **Java**
 
 ```java
-/*
-    Base cases:
-        sol[0] = nums[0]
-        sol[1] = max(nums[1], sol[0] + nums[1])
-        sol[2] = max(nums[2], sol[1] + nums[2], sol[0] + nums[2])
-        .
-        .
-        .
-        'k' window
-    
-    Rec function:
-        
-        sol[i] = 
-            
-            if(i <=k):
-                max(nums[i], for k in range max(0, i -k) to i max(sol[k] + nums[i]))
-            else:
-                for k in range max(0, i -k) to i max(sol[k] + nums[k])
-                
-        i think??
-    
-*/
-​
 ​
 class Solution {
     public int maxResult(int[] nums, int kj) {
@@ -100,4 +75,28 @@ class Solution {
                 {
                     OPT[i] = sol_max + nums[i];
                     System.out.println("My OPT for OPT[ " + i +" ] is: " + OPT[i]);
+                }
+                
+                
+            }
+            else
+            {
+                int sol_max = -2147483648;
+                for(int k=Math.max(0, i-kj); k<i ; k++)
+                {
+                    if(OPT[k] > sol_max)
+                    {
+                        sol_max=OPT[k];
+                    }
+                }
+                OPT[i] = sol_max + nums[i];
+                System.out.println("My OPT for OPT[ " + i +" ] is: " + OPT[i]);
+            }
+            
+        }
+        
+        return OPT[nums.length -1];
+            
+    }
+}
 ```
