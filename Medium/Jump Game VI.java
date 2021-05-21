@@ -1,5 +1,7 @@
 ### [1696\. Jump Game VI](https://leetcode.com/problems/jump-game-vi/)
 
+My sol solves 57/65 cases, reason for failure: time limit exceeded
+
 Difficulty: **Medium**  
 
 Related Topics: [Dequeue](https://leetcode.com/tag/dequeue/)
